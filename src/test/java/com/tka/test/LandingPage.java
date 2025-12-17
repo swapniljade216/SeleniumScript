@@ -28,14 +28,14 @@ public class LandingPage {
      }else {
       System.out.println("test case is fail and you are not able to enter a value in search textbox"); 
      }
-     //check advance login link is clickable or not and if enabled then click on link
+     //tc-3 check advance login link is clickable or not and if enabled then click on link
      WebElement linkadvanceSearch=driver.findElement(By.xpath("//*[@id=\"top_header\"]/div[2]/div[2]/div/div/form/div/div[1]/small/a"));
      boolean isEnable=linkadvanceSearch.isEnabled();
      boolean istrue=false;
      if(isEnable) {
     	 istrue=true;
     	 System.out.println("Advance link is enable for click");
-    	 linkadvanceSearch.click();
+    	 linkadvanceSearch.click();	 
      }else {
     	 System.out.println("advance click is not enable for click");
      }
@@ -44,8 +44,13 @@ public class LandingPage {
      }else {
     	 System.out.println("testcase fail");
      }
-	
-	
+     String actualUrl=driver.getCurrentUrl();
+     String expectedUrl="https://javabykiran.in/other/CC/search";
+     if(actualUrl.equals(expectedUrl)) {
+    	 System.out.println("testcase pass and page navigated to next page");
+     }else {
+    	 System.out.println("testcase fail");
+     }
 	
 	}
 
